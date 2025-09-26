@@ -108,7 +108,7 @@
       align-items: center;
       gap: 8px;
     }
-    .filter-btn:hover, .filter-btn.active {
+    .filter-btn:hover {
       background: var(--secondary);
       color: var(--dark);
     }
@@ -265,192 +265,121 @@
 
   <main class="container">
     <div class="controls">
-      <button class="filter-btn active" data-season="all">All Seasons</button>
-      <button class="filter-btn" data-season="1">Season 1</button>
-      <button class="filter-btn" data-season="2">Season 2</button>
-      <div class="search-container" style="flex-grow: 1; max-width: 400px;">
-        <input type="text" id="searchBar" placeholder="Search episodes...">
-        <i class="fas fa-search search-icon"></i>
+      <div class="search-container">
       </div>
+      </>
     </div>
 
-    <div class="movies" id="movies">
-      <!-- Episodes injected by JS -->
-    </div>
+    <div class="movies" id="movies"></div>
   </main>
 
-  <div class="theme-toggle" id="themeToggle" title="Toggle light/dark mode">
-    <i class="fas fa-adjust"></i>
   </div>
 
-<script>
-  const movies = [
-    {
-      id: 1,
-      title: "S1 | 1 - A Whole New Whirled",
-      year: 2022,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/538eLa2f3FoSwNNzHpHi0J1ZXl6.jpg",
-      url: "https://gradejumper.site/clearflare66.live/file2/EP6eRp2yEo6Irf+5d8oqtd07uc5PmWOq6PwL5+gdoKlKPYCRxNbi6WlWxgmcXBhXXNtGPdHKXFg8dyVQLIUls~KqCPFKu9O12SQramXW5AzzRnjk04AymGCLUwilYvB6yvXQ2x8JI2DYDdUbLBKKBt0tGLn0RJ34nwPd3+2rWYU=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 2,
-      title: "S1 | 2 - Best Friends, For Never",
-      year: 2022,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/dUAS7fZqjdPcfYnLnxCm40U0LUa.jpg",
-      url: "https://gradejumper.site/rainwhisper40.xyz/file2/yPzrve5Q8MO92EHkyl8P6rbvxPb~8wQerV1Rxk0OSl9LND3G3aSvqNj6WVbSIu~ay7SwPimXUk52E~XNjDnoYI2ks4EJz4LbJo+3~b3VUXfJrECdMP5XDPcFlg3s4JGEvJDkCNBwWphP2x3wHOwEGDEixTJZCryVhPbTIw9Y7pc=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 3,
-      title: "S1 | 3 - Better Goff Dead",
-      year: 2022,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/wyZXot4qqZEOCOOB3Vrv5F4KXRR.jpg",
-      url: "https://gradejumper.site/breezeflash17.pro/file2/oZ2oRQYNwLw5IESpMJiLao2QR9TlInD4kx6WQSSpf7nOZSKcdmdQpmZ8p5yFSX3E~Fi2fpuZhtnwO~Trsi7JH1OC~GCjC7SoAQVGOMHwJr5Refqc5v0YJfRmMIuV1BWI0ydxpIVg1a8IF7vrk+hU3tEudrgL0~cdsFadUFHAFEY=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 4,
-      title: "S1 | 4 - The Choad Less Traveled",
-      year: 2022,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/b0jdRtuGm7blKJZamhU30Z1XlP5.jpg",
-      url: "https://gradejumper.site/mistcloud98.xyz/file2/eMCmJK6aeQqyRolmMNGTLrq+61u7mQ862HLMXW0CGy0K8lmXp4TV3S6hzPbVbHyZ2+2zyyvTnfFkHzUOaTQDTB85VVK6+Y7krWfQrewt8j0EhhjVT9L2~sgi7zakAXzEnnoDhcpCNsZPNwUFPMfnvFaaahSQiLpEDjd6~Jwb6oM=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 5,
-      title: "S1 | 5 - Monkey Dory",
-      year: 2022,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/hUAnjCnWPn7SulqtNTe7xJhv38A.jpg",
-      url: "https://gradejumper.site/snowblink22.pro/file2/bfNrOLc0S38Z78TRbB6MIzR3lzLEuLiILH24Bc3Gn+PeT9L2LHZMlASOQY5HDnMgD2gOEptqtUVNyCcaJqfJIQ+7ZX1WTlUR58FUQwQoshz0ax2doqvAyM5o2tG7HOc3BIRHGWPEWBvqsh2dcdG~clUfwWhv6ydAQlzKdJQDMb0=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 6,
-      title: "S1 | 6 - Murn After Reading",
-      year: 2022,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/4IIMkGmzSsC02fjfqiFRQp7ySAM.jpg",
-      url: "https://gradejumper.site/breezeflash17.pro/file2/MI4jNc1FUEji5IFKKxCRjZQ1Ek7xjaY2qlcBUIS1ryBCrUFuJuTluLNoiWCY5naD4yQ9t9+nE4cUzs8SO8cutIlAdXgWXeSRQAooIDp8OIMQHawCaPoPgvCpiZTNgd8rTbA2IvQtKJ5Smyw7JRcWFjvyf6Lo8zA1Zuch6hFev+8=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 7,
-      title: "S1 | 7 - Stop Dragon My Heart Around",
-      year: 2023,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/bzdhWTRUb9CFF3tDT4SyBn0QGd.jpg",
-      url: "https://gradejumper.site/clearflare66.live/file2/n+k1fcAIoipq+uw1~DIyzHOX~gM90lZ5LIU50bTYu+QKaRCswO7BsKDZ0nTf0hS51MSWyA4mcrR5c1muHcUpvuIp36ojiSgIdvvHJNauIMF3drhp6UK3hE4hG2UgFc7o4xWYCJVeBPfl4sgESdxB9OoPEa+nOB1a8V64PY4EVi4=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 8,
-      title: "S1 | 8 - It's Cow or Never",
-      year: 2023,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/9oi9FPSEYlDmMvHSQaCmhsDO6PU.jpg",
-      url: "https://gradejumper.site/mistcloud98.xyz/file2/eS+1+cLK5pZJJUsQWe0R+iBWOeE1iduziI8uDcTv6Xck4eChFvUkB4Offbzo8VDbeWAmIPKF4~dClU0U~W0XQdjVTSkxvz+L4~hrrvXsPwvGzQJrF0fTAuE+5N~1tNWE1+zIVeqzTZZCljOTC31TZfIR59zGkQQJj0Lqn9q0ZQg=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 9,
-      title: "S2 | 1 - The Ties That Grind",
-      year: 2025,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/hoL20ZxHYTyNqzYZw5AAgwhHZPP.jpg",
-      url: "https://gradejumper.site/breezeflash17.pro/file2/zgsR7gk46n12+o5IIuXT5cFHBvfkcAIPtNFGzlassmAoWny3mrWmcNIQZd4+3nV5Fw1q406nLrwX30Xwa+4Wvx~4aPs2e1WjzDdOz517SaaFAwZswmxUzoAwyM6BYzKk0hpCIklK91DimTuirLi3BDp9N+9fqTw8HJFTAeSqg+U=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 10,
-      title: "S2 | 2 - A Man Is Only As Good As His Bird",
-      year: 2025,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/sAqQYYUMaS9FqHNACCQL9LRwsYn.jpg",
-      url: "https://gradejumper.site/mistcloud98.xyz/file2/y5ogtfYtH7HqL3aF+7bRNH~S~ZV3Zu4K1n7iDIW710umPg0+fLF0NVHQUWklteSEFZ7DfCi7ai9qrLUfYwvhvUp3596zaT7e+OMw~VNeua~3i6gpPlGRxMR7Rsv4GcZROlkw5K79cZGWcEelDaOVwiAQ5QAs3YLyJ+St886qBVQ=/MTA8MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 11,
-      title: "S2 | 3 - Another Rick Up My Sleeve",
-      year: 2025,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/a8TIhxg98a8BLVOMP8p24c3lFaC.jpg",
-      url: "https://gradejumper.site/lightmist83.live/file2/EiqnarBmmPGovb+FDdX8jkuY4QYwQu4nu9EN7kHR8WjzNRRZhYzD0F~GKVzj43QKTGHy5NlGMvhG5OnTXJczxuS8ub+jla9EEBltmtfbxBsNnQ~d0il4~IUStFOYHkK3+PdFnZ~BQubXEPj6~Z7960Q3S4GUX~oTjjI3jULZEOE=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 12,
-      title: "S2 | 4 - Need I Say Door",
-      year: 2025,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/6bdIgolsJzPHyJE7RLGeca1YKLn.jpg",
-      url: "https://gradejumper.site/rainwhisper40.xyz/file2/GWmBk~1j~zlAqI08ZCwNF36dUM5APuBM+TkraxxuXLtcprhsT0SQ2+5k4Hypl3~xvk+guVxJ++pjvWrqPnUlh09mXv75JKi~4QsdGGGQharNNsliA3sx+Prki6IAQqtugSZm2b4~sbwj+M86ExmgmHjQZzCFhqiL6aNUGIBh6M8=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 13,
-      title: "S2 | 5 - Back to the Suture",
-      year: 2025,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/c8LmcPtTvxqE708zBo1bD8RYqGw.jpg",
-      url: "https://gradejumper.site/rainwhisper40.xyz/file2/cPcdH4GdAq6Ktn0oRrJdGqJFSe5CLabr77~ilGrUGLtx9eTeYLcJifdX18DgEISysmW9225nupZwRLhxTjDIOXjnHja~+fibFI4JaZdLsYFaWnTU7znzCAoH8oDql0QzYOoaKFNo8jkudz0xRpBbNfosskQyai+KP~pvov~Mis0=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-    {
-      id: 14,
-      title: "S2 | 6 - Ignorance Is Chris",
-      year: 2025,
-      poster: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/l55bH1tdPjWjCVaOe0yaXHVC2wn.jpg",
-      url: "https://gradejumper.site/frostwave30.xyz/file2/noqb0kWAYAZ6jQ48nXXrbBQsVwm3nMpv6fe1qfkDxI1+SRl4tAvvJtaf70R0QL71lSTGdoFeaG~BEPHD9GhNdsv40zMVMVKqHTmcbJecEi7I+2rW1ZE8BXmzuYsWDHOFY+iZQbTrRek+Qfa+vd6qhJNCOG8zADQj8IjOPZR+OKU=/MTA4MA==/aW5kZXgubTN1OA==.m3u8"
-    },
-  ];
+  <script>
+    const movies = [
+      // Season 1
+      {
+        title: "A Whole New Whirled S1 | E1",
+        video: "https://gradejumper.site/clearflare66.live/file2/EP6eRp2yEo6Irf+5d8oqtd07uc5PmWOq6PwL5+gdoKlKPYCRxNbi6WlWxgmcXBhXXNtGPdHKXFg8dyVQLIUls~KqCPFKu9O12SQramXW5AzzRnjk04AymGCLUwilYvB6yvXQ2x8JI2DYDdUbLBKKBt0tGLn0RJ34nwPd3+2rWYU=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/538eLa2f3FoSwNNzHpHi0J1ZXl6.jpg"
+      },
+      {
+        title: "Best Friends, For Never S1 | E2",
+        video: "https://gradejumper.site/rainwhisper40.xyz/file2/yPzrve5Q8MO92EHkyl8P6rbvxPb~8wQerV1Rxk0OSl9LND3G3aSvqNj6WVbSIu~ay7SwPimXUk52E~XNjDnoYI2ks4EJz4LbJo+3~b3VUXfJrECdMP5XDPcFlg3s4JGEvJDkCNBwWphP2x3wHOwEGDEixTJZCryVhPbTIw9Y7pc=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/dUAS7fZqjdPcfYnLnxCm40U0LUa.jpg"
+      },
+      {
+        title: "Better Goff Dead S1 | E3",
+        video: "https://gradejumper.site/breezeflash17.pro/file2/oZ2oRQYNwLw5IESpMJiLao2QR9TlInD4kx6WQSSpf7nOZSKcdmdQpmZ8p5yFSX3E~Fi2fpuZhtnwO~Trsi7JH1OC~GCjC7SoAQVGOMHwJr5Refqc5v0YJfRmMIuV1BWI0ydxpIVg1a8IF7vrk+hU3tEudrgL0~cdsFadUFHAFEY=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/wyZXot4qqZEOCOOB3Vrv5F4KXRR.jpg"
+      },
+      {
+        title: "The Choad Less Traveled S1 | E4",
+        video: "https://gradejumper.site/mistcloud98.xyz/file2/eMCmJK6aeQqyRolmMNGTLrq+61u7mQ862HLMXW0CGy0K8lmXp4TV3S6hzPbVbHyZ2+2zyyvTnfFkHzUOaTQDTB85VVK6+Y7krWfQrewt8j0EhhjVT9L2~sgi7zakAXzEnnoDhcpCNsZPNwUFPMfnvFaaahSQiLpEDjd6~Jwb6oM=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/b0jdRtuGm7blKJZamhU30Z1XlP5.jpg"
+      },
+      {
+        title: "Monkey Dory S1 | E5",
+        video: "https://gradejumper.site/snowblink22.pro/file2/bfNrOLc0S38Z78TRbB6MIzR3lzLEuLiILH24Bc3Gn+PeT9L2LHZMlASOQY5HDnMgD2gOEptqtUVNyCcaJqfJIQ+7ZX1WTlUR58FUQwQoshz0ax2doqvAyM5o2tG7HOc3BIRHGWPEWBvqsh2dcdG~clUfwWhv6ydAQlzKdJQDMb0=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/hUAnjCnWPn7SulqtNTe7xJhv38A.jpg"
+      },
+      {
+        title: "Murn After Reading S1 | E6",
+        video: "https://gradejumper.site/breezeflash17.pro/file2/MI4jNc1FUEji5IFKKxCRjZQ1Ek7xjaY2qlcBUIS1ryBCrUFuJuTluLNoiWCY5naD4yQ9t9+nE4cUzs8SO8cutIlAdXgWXeSRQAooIDp8OIMQHawCaPoPgvCpiZTNgd8rTbA2IvQtKJ5Smyw7JRcWFjvyf6Lo8zA1Zuch6hFev+8=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/4IIMkGmzSsC02fjfqiFRQp7ySAM.jpg"
+      },
+      {
+        title: "Stop Dragon My Heart Around S1 | E7",
+        video: "https://gradejumper.site/clearflare66.live/file2/n+k1fcAIoipq+uw1~DIyzHOX~gM90lZ5LIU50bTYu+QKaRCswO7BsKDZ0nTf0hS51MSWyA4mcrR5c1muHcUpvuIp36ojiSgIdvvHJNauIMF3drhp6UK3hE4hG2UgFc7o4xWYCJVeBPfl4sgESdxB9OoPEa+nOB1a8V64PY4EVi4=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/bzdhWTRUb9CFF3tDT4SyBn0QGd.jpg"
+      },
+      {
+        title: "It's Cow or Never S1 | E8",
+        video: "https://gradejumper.site/mistcloud98.xyz/file2/eS+1+cLK5pZJJUsQWe0R+iBWOeE1iduziI8uDcTv6Xck4eChFvUkB4Offbzo8VDbeWAmIPKF4~dClU0U~W0XQdjVTSkxvz+L4~hrrvXsPwvGzQJrF0fTAuE+5N~1tNWE1+zIVeqzTZZCljOTC31TZfIR59zGkQQJj0Lqn9q0ZQg=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/9oi9FPSEYlDmMvHSQaCmhsDO6PU.jpg"
+      },
 
-  const moviesContainer = document.getElementById('movies');
-  const searchBar = document.getElementById('searchBar');
-  const filterButtons = document.querySelectorAll('.filter-btn');
+      // Season 2
+      {
+        title: "The Ties That Grind S2 | E1",
+        video: "https://gradejumper.site/breezeflash17.pro/file2/zgsR7gk46n12+o5IIuXT5cFHBvfkcAIPtNFGzlassmAoWny3mrWmcNIQZd4+3nV5Fw1q406nLrwX30Xwa+4Wvx~4aPs2e1WjzDdOz517SaaFAwZswmxUzoAwyM6BYzKk0hpCIklK91DimTuirLi3BDp9N+9fqTw8HJFTAeSqg+U=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/hoL20ZxHYTyNqzYZw5AAgwhHZPP.jpg"
+      },
+      {
+        title: "A Man Is Only As Good As His Bird S2 | E2",
+        video: "https://gradejumper.site/mistcloud98.xyz/file2/y5ogtfYtH7HqL3aF+7bRNH~S~ZV3Zu4K1n7iDIW710umPg0+fLF0NVHQUWklteSEFZ7DfCi7ai9qrLUfYwvhvUp3596zaT7e+OMw~VNeua~3i6gpPlGRxMR7Rsv4GcZROlkw5K79cZGWcEelDaOVwiAQ5QAs3YLyJ+St886qBVQ=/MTA8MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/sAqQYYUMaS9FqHNACCQL9LRwsYn.jpg"
+      },
+      {
+        title: "Another Rick Up My Sleeve S2 | E3",
+        video: "https://gradejumper.site/lightmist83.live/file2/EiqnarBmmPGovb+FDdX8jkuY4QYwQu4nu9EN7kHR8WjzNRRZhYzD0F~GKVzj43QKTGHy5NlGMvhG5OnTXJczxuS8ub+jla9EEBltmtfbxBsNnQ~d0il4~IUStFOYHkK3+PdFnZ~BQubXEPj6~Z7960Q3S4GUX~oTjjI3jULZEOE=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/a8TIhxg98a8BLVOMP8p24c3lFaC.jpg"
+      },
+      {
+        title: "Need I Say Door S2 | E4",
+        video: "https://gradejumper.site/rainwhisper40.xyz/file2/GWmBk~1j~zlAqI08ZCwNF36dUM5APuBM+TkraxxuXLtcprhsT0SQ2+5k4Hypl3~xvk+guVxJ++pjvWrqPnUlh09mXv75JKi~4QsdGGGQharNNsliA3sx+Prki6IAQqtugSZm2b4~sbwj+M86ExmgmHjQZzCFhqiL6aNUGIBh6M8=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/6bdIgolsJzPHyJE7RLGeca1YKLn.jpg"
+      },
+      {
+        title: "Back to the Suture S2 | E5",
+        video: "https://gradejumper.site/rainwhisper40.xyz/file2/cPcdH4GdAq6Ktn0oRrJdGqJFSe5CLabr77~ilGrUGLtx9eTeYLcJifdX18DgEISysmW9225nupZwRLhxTjDIOXjnHja~+fibFI4JaZdLsYFaWnTU7znzCAoH8oDql0QzYOoaKFNo8jkudz0xRpBbNfosskQyai+KP~pvov~Mis0=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/c8LmcPtTvxqE708zBo1bD8RYqGw.jpg"
+      },
+      {
+        title: "Ignorance Is Chris S2 | E6",
+        video: "https://gradejumper.site/frostwave30.xyz/file2/noqb0kWAYAZ6jQ48nXXrbBQsVwm3nMpv6fe1qfkDxI1+SRl4tAvvJtaf70R0QL71lSTGdoFeaG~BEPHD9GhNdsv40zMVMVKqHTmcbJecEi7I+2rW1ZE8BXmzuYsWDHOFY+iZQbTrRek+Qfa+vd6qhJNCOG8zADQj8IjOPZR+OKU=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: "https://wsrv.nl/?url=https://image.tmdb.org/t/p/original/l55bH1tdPjWjCVaOe0yaXHVC2wn.jpg"
+      }
+    ];
 
-  function renderMovies(filteredMovies) {
-    if(filteredMovies.length === 0) {
-      moviesContainer.innerHTML = `<p class="empty-state">No episodes found.</p>`;
-      return;
-    }
-    moviesContainer.innerHTML = filteredMovies.map(movie => `
-      <div class="movie" data-title="${movie.title.toLowerCase()}" data-season="${movie.title.includes('S1') ? '1' : (movie.title.includes('S2') ? '2' : '')}">
-        <a href="${movie.url}" target="_blank" rel="noopener noreferrer" title="${movie.title}">
-          <img src="${movie.poster}" alt="${movie.title} Poster" loading="lazy" />
-          <div class="movie-info">
-            <h3 class="movie-title">${movie.title}</h3>
-            <p class="movie-year">${movie.year}</p>
-          </div>
-        </a>
-      </div>
-    `).join('');
-  }
+    const container = document.getElementById('movies');
+    movies.forEach((movie, index) => {
+      const div = document.createElement('div');
+      div.className = 'movie';
+      div.innerHTML = `
+        <img src="${movie.image}" alt="${movie.title}">
+        <div class="movie-info">
+          <div class="movie-title">${movie.title}</div>
 
-  // Initial render
-  renderMovies(movies);
-
-  // Search functionality
-  searchBar.addEventListener('input', () => {
-    const searchTerm = searchBar.value.toLowerCase().trim();
-    const activeSeason = [...filterButtons].find(btn => btn.classList.contains('active')).dataset.season;
-    filterAndRender(searchTerm, activeSeason);
-  });
-
-  // Filter buttons functionality
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      const season = button.dataset.season;
-      const searchTerm = searchBar.value.toLowerCase().trim();
-      filterAndRender(searchTerm, season);
+        </div>
+      `;
+      div.onclick = () => {
+        const url = "player.html?title=" + encodeURIComponent(movie.title)
+                  + "&video=" + encodeURIComponent(movie.video)
+                  + "&index=" + index;
+        window.location.href = url;
+      };
+      container.appendChild(div);
     });
-  });
 
-  function filterAndRender(searchTerm, season) {
-    let filtered = movies;
-
-    if (season !== 'all') {
-      filtered = filtered.filter(m => {
-        if(season === '1') return m.title.includes('S1');
-        if(season === '2') return m.title.includes('S2');
-        return true;
+    document.getElementById('searchBar').addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const movieDivs = document.querySelectorAll('.movie');
+      movieDivs.forEach(div => {
+        const title = div.querySelector('.movie-title').textContent.toLowerCase();
+        div.style.display = title.includes(searchTerm) ? 'block' : 'none';
       });
-    }
-
-    if (searchTerm) {
-      filtered = filtered.filter(m => m.title.toLowerCase().includes(searchTerm));
-    }
-
-    renderMovies(filtered);
-  }
-
-  // Theme toggle
-  const themeToggle = document.getElementById('themeToggle');
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-  });
-</script>
+    });
+  </script>
 </body>
 </html>
