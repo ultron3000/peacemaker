@@ -1,221 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Watch Peacemaker Series - All episodes from Season 1 and Season 2">
-    <meta name="keywords" content="Peacemaker, DC, Series, Watch Online">
-    <title>Peacemaker Series - Seasons 1 & 2 | Watch Online</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #00d1ff;
-            --secondary: #ff4081;
-            --bg-dark: #121212;
-            --bg-light: #1e1e1e;
-            --text: #ffffff;
-            --accent: #00ff88;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        header {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        h1 {
-            color: var(--primary);
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .season {
-            background: var(--bg-light);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .episodes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .episode-card {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .episode-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 209, 255, 0.2);
-            background: rgba(0, 0, 0, 0.4);
-            border-color: var(--primary);
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .episode-link i {
-            color: var(--primary);
-        }
-
-        .episode-link:hover {
-            color: var(--secondary);
-        }
-
-        footer {
-            background: var(--bg-light);
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .episodes-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Peacemaker | DC Series Collection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Watch all episodes of Peacemaker (DC Universe) Season 1 & 2 in one place">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Your original CSS from the working file, unchanged */
+    :root {
+      --primary: #f0131e;
+      --secondary: #ffcc00;
+      --dark: #0f0f0f;
+      --light: #f5f5f5;
+      --accent: #0066cc;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--dark);
+      color: var(--light);
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+      padding: 20px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 10;
+    }
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      margin: 0;
+      color: var(--secondary);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: var(--light);
+      opacity: 0.8;
+      margin-top: 5px;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 25px 0;
+      align-items: center;
+      justify-content: center;
+    }
+    .search-container {
+      position: relative;
+      flex-grow: 1;
+      max-width: 600px;
+    }
+    #searchBar {
+      width: 100%;
+      padding: 12px 20px 12px 45px;
+      font-size: 1rem;
+      border-radius: 30px;
+      border: 2px solid var(--primary);
+      background: rgba(15, 15, 15, 0.8);
+      color: var(--light);
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    #searchBar:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(240,19,30,0.3);
+    }
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+    }
+    .filter-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .filter-btn:hover {
+      background: var(--secondary);
+      color: var(--dark);
+    }
+    .movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+      gap: 25px;
+      padding: 10px 0;
+      margin: 0 auto;
+    }
+    .movie {
+      background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .movie:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(240,19,30,0.3);
+    }
+    .movie::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+    .movie:hover::before {
+      height: 6px;
+      background: var(--secondary);
+    }
+    .movie img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition);
+    }
+    .movie:hover img {
+      opacity: 0.9;
+    }
+    .movie-info {
+      padding: 15px;
+    }
+    .movie-title {
+      font-weight: 700;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+      color: var(--light);
+    }
+    .movie-year {
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 50px 0;
+      color: var(--light);
+      opacity: 0.7;
+    }
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 100;
+      transition: var(--transition);
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--secondary);
+    }
+    @media (max-width: 768px) {
+      .movies {
+        grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
+        gap: 15px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .movie img {
+        height: 240px;
+      }
+    }
+    @media (max-width: 480px) {
+      .movies {
+        grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
+      }
+      .movie img {
+        height: 200px;
+      }
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+    body.light-mode {
+      background: #f5f5f5;
+      color: #333;
+    }
+    body.light-mode header {
+      background: linear-gradient(135deg, var(--primary) 0%, #f5f5f5 100%);
+    }
+    body.light-mode .movie {
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    body.light-mode .movie-title {
+      color: #333;
+    }
+    body.light-mode #searchBar {
+      background: white;
+      color: #333;
+    }
+    body.light-mode ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Peacemaker Series <i class="fas fa-mask"></i></h1>
+  <header>
+    <div class="container">
+      <h1>PEACEMAKER</h1>
+      <p class="subtitle">All Episodes • DC Universe Series</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="controls">
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input id="searchBar" placeholder="Search Peacemaker episodes..." type="text" />
+      </div>
+      <button class="filter-btn">
+        <i class="fas fa-filter"></i> Filters
+      </button>
+    </div>
+
+    <div class="movies" id="movies"></div>
+  </main>
+
+  <div class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <script>
+    const movies = [
+      // Season 1
+      {
+        title: "Peacemaker S01E01",
+        video: "https://gradejumper.site/clearflare66.live/file2/EP6eRp2yEo6Irf+5d8oqtd07uc5PmWOq6PwL5+gdoKlKPYCRxNbi6WlWxgmcXBhXXNtGPdHKXFg8dyVQLIUls~KqCPFKu9O12SQramXW5AzzRnjk04AymGCLUwilYvB6yvXQ2x8JI2DYDdUbLBKKBt0tGLn0RJ34nwPd3+2rWYU=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S01E02",
+        video: "https://gradejumper.site/rainwhisper40.xyz/file2/yPzrve5Q8MO92EHkyl8P6rbvxPb~8wQerV1Rxk0OSl9LND3G3aSvqNj6WVbSIu~ay7SwPimXUk52E~XNjDnoYI2ks4EJz4LbJo+3~b3VUXfJrECdMP5XDPcFlg3s4JGEvJDkCNBwWphP2x3wHOwEGDEixTJZCryVhPbTIw9Y7pc=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S01E03",
+        video: "https://gradejumper.site/breezeflash17.pro/file2/oZ2oRQYNwLw5IESpMJiLao2QR9TlInD4kx6WQSSpf7nOZSKcdmdQpmZ8p5yFSX3E~Fi2fpuZhtnwO~Trsi7JH1OC~GCjC7SoAQVGOMHwJr5Refqc5v0YJfRmMIuV1BWI0ydxpIVg1a8IF7vrk+hU3tEudrgL0~cdsFadUFHAFEY=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S01E04",
+        video: "https://gradejumper.site/mistcloud98.xyz/file2/eMCmJK6aeQqyRolmMNGTLrq+61u7mQ862HLMXW0CGy0K8lmXp4TV3S6hzPbVbHyZ2+2zyyvTnfFkHzUOaTQDTB85VVK6+Y7krWfQrewt8j0EhhjVT9L2~sgi7zakAXzEnnoDhcpCNsZPNwUFPMfnvFaaahSQiLpEDjd6~Jwb6oM=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S01E05",
+        video: "https://gradejumper.site/snowblink22.pro/file2/bfNrOLc0S38Z78TRbB6MIzR3lzLEuLiILH24Bc3Gn+PeT9L2LHZMlASOQY5HDnMgD2gOEptqtUVNyCcaJqfJIQ+7ZX1WTlUR58FUQwQoshz0ax2doqvAyM5o2tG7HOc3BIRHGWPEWBvqsh2dcdG~clUfwWhv6ydAQlzKdJQDMb0=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S01E06",
+        video: "https://gradejumper.site/breezeflash17.pro/file2/MI4jNc1FUEji5IFKKxCRjZQ1Ek7xjaY2qlcBUIS1ryBCrUFuJuTluLNoiWCY5naD4yQ9t9+nE4cUzs8SO8cutIlAdXgWXeSRQAooIDp8OIMQHawCaPoPgvCpiZTNgd8rTbA2IvQtKJ5Smyw7JRcWFjvyf6Lo8zA1Zuch6hFev+8=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S01E07",
+        video: "https://gradejumper.site/clearflare66.live/file2/n+k1fcAIoipq+uw1~DIyzHOX~gM90lZ5LIU50bTYu+QKaRCswO7BsKDZ0nTf0hS51MSWyA4mcrR5c1muHcUpvuIp36ojiSgIdvvHJNauIMF3drhp6UK3hE4hG2UgFc7o4xWYCJVeBPfl4sgESdxB9OoPEa+nOB1a8V64PY4EVi4=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S01E08",
+        video: "https://gradejumper.site/mistcloud98.xyz/file2/eS+1+cLK5pZJJUsQWe0R+iBWOeE1iduziI8uDcTv6Xck4eChFvUkB4Offbzo8VDbeWAmIPKF4~dClU0U~W0XQdjVTSkxvz+L4~hrrvXsPwvGzQJrF0fTAuE+5N~1tNWE1+zIVeqzTZZCljOTC31TZfIR59zGkQQJj0Lqn9q0ZQg=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+
+      // Season 2
+      {
+        title: "Peacemaker S02E01",
+        video: "https://gradejumper.site/breezeflash17.pro/file2/zgsR7gk46n12+o5IIuXT5cFHBvfkcAIPtNFGzlassmAoWny3mrWmcNIQZd4+3nV5Fw1q406nLrwX30Xwa+4Wvx~4aPs2e1WjzDdOz517SaaFAwZswmxUzoAwyM6BYzKk0hpCIklK91DimTuirLi3BDp9N+9fqTw8HJFTAeSqg+U=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S02E02",
+        video: "https://gradejumper.site/mistcloud98.xyz/file2/y5ogtfYtH7HqL3aF+7bRNH~S~ZV3Zu4K1n7iDIW710umPg0+fLF0NVHQUWklteSEFZ7DfCi7ai9qrLUfYwvhvUp3596zaT7e+OMw~VNeua~3i6gpPlGRxMR7Rsv4GcZROlkw5K79cZGWcEelDaOVwiAQ5QAs3YLyJ+St886qBVQ=/MTA8MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S02E03",
+        video: "https://gradejumper.site/lightmist83.live/file2/EiqnarBmmPGovb+FDdX8jkuY4QYwQu4nu9EN7kHR8WjzNRRZhYzD0F~GKVzj43QKTGHy5NlGMvhG5OnTXJczxuS8ub+jla9EEBltmtfbxBsNnQ~d0il4~IUStFOYHkK3+PdFnZ~BQubXEPj6~Z7960Q3S4GUX~oTjjI3jULZEOE=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S02E04",
+        video: "https://gradejumper.site/rainwhisper40.xyz/file2/GWmBk~1j~zlAqI08ZCwNF36dUM5APuBM+TkraxxuXLtcprhsT0SQ2+5k4Hypl3~xvk+guVxJ++pjvWrqPnUlh09mXv75JKi~4QsdGGGQharNNsliA3sx+Prki6IAQqtugSZm2b4~sbwj+M86ExmgmHjQZzCFhqiL6aNUGIBh6M8=/MTA4MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S02E05",
+        video: "https://gradejumper.site/rainwhisper40.xyz/file2/cPcdH4GdAq6Ktn0oRrJdGqJFSe5CLabr77~ilGrUGLtx9eTeYLcJifdX18DgEISysmW9225nupZwRLhxTjDIOXjnHja~+fibFI4JaZdLsYFaWnTU7znzCAoH8oDql0QzYOoaKFNo8jkudz0xRpBbNfosskQyai+KP~pvov~Mis0=/MTA8MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      },
+      {
+        title: "Peacemaker S02E06",
+        video: "https://gradejumper.site/frostwave30.xyz/file2/noqb0kWAYAZ6jQ48nXXrbBQsVwm3nMpv6fe1qfkDxI1+SRl4tAvvJtaf70R0QL71lSTGdoFeaG~BEPHD9GhNdsv40zMVMVKqHTmcbJecEi7I+2rW1ZE8BXmzuYsWDHOFY+iZQbTrRek+Qfa+vd6qhJNCOG8zADQj8IjOPZR+OKU=/MTA8MA==/aW5kZXgubTN1OA==.m3u8",
+        image: ""
+      }
+    ];
+
+    const container = document.getElementById('movies');
+    movies.forEach((movie, index) => {
+      const div = document.createElement('div');
+      div.className = 'movie';
+      div.innerHTML = `
+        <img src="${movie.image}" alt="${movie.title}">
+        <div class="movie-info">
+          <div class="movie-title">\${movie.title}</div>
         </div>
-    </header>
+      `;
+      div.onclick = () => {
+        const url = "player.html?title=" + encodeURIComponent(movie.title)
+                  + "&video=" + encodeURIComponent(movie.video)
+                  + "&index=" + index;
+        window.location.href = url;
+      };
+      container.appendChild(div);
+    });
 
-    <main class="container">
-
-        <div class="season">
-            <h2><i class="fas fa-tv"></i> Season 1</h2>
-            <div class="episodes-grid">
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/clearflare66.live/file2/EP6eRp2yEo6Irf+5d8oqtd07uc5PmWOq6PwL5+gdoKlKPYCRxNbi6WlWxgmcXBhXXNtGPdHKXFg8dyVQLIUls~KqCPFKu9O12SQramXW5AzzRnjk04AymGCLUwilYvB6yvXQ2x8JI2DYDdUbLBKKBt0tGLn0RJ34nwPd3+2rWYU=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 1
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/rainwhisper40.xyz/file2/yPzrve5Q8MO92EHkyl8P6rbvxPb~8wQerV1Rxk0OSl9LND3G3aSvqNj6WVbSIu~ay7SwPimXUk52E~XNjDnoYI2ks4EJz4LbJo+3~b3VUXfJrECdMP5XDPcFlg3s4JGEvJDkCNBwWphP2x3wHOwEGDEixTJZCryVhPbTIw9Y7pc=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 2
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/breezeflash17.pro/file2/oZ2oRQYNwLw5IESpMJiLao2QR9TlInD4kx6WQSSpf7nOZSKcdmdQpmZ8p5yFSX3E~Fi2fpuZhtnwO~Trsi7JH1OC~GCjC7SoAQVGOMHwJr5Refqc5v0YJfRmMIuV1BWI0ydxpIVg1a8IF7vrk+hU3tEudrgL0~cdsFadUFHAFEY=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 3
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/mistcloud98.xyz/file2/eMCmJK6aeQqyRolmMNGTLrq+61u7mQ862HLMXW0CGy0K8lmXp4TV3S6hzPbVbHyZ2+2zyyvTnfFkHzUOaTQDTB85VVK6+Y7krWfQrewt8j0EhhjVT9L2~sgi7zakAXzEnnoDhcpCNsZPNwUFPMfnvFaaahSQiLpEDjd6~Jwb6oM=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 4
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/snowblink22.pro/file2/bfNrOLc0S38Z78TRbB6MIzR3lzLEuLiILH24Bc3Gn+PeT9L2LHZMlASOQY5HDnMgD2gOEptqtUVNyCcaJqfJIQ+7ZX1WTlUR58FUQwQoshz0ax2doqvAyM5o2tG7HOc3BIRHGWPEWBvqsh2dcdG~clUfwWhv6ydAQlzKdJQDMb0=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 5
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/breezeflash17.pro/file2/MI4jNc1FUEji5IFKKxCRjZQ1Ek7xjaY2qlcBUIS1ryBCrUFuJuTluLNoiWCY5naD4yQ9t9+nE4cUzs8SO8cutIlAdXgWXeSRQAooIDp8OIMQHawCaPoPgvCpiZTNgd8rTbA2IvQtKJ5Smyw7JRcWFjvyf6Lo8zA1Zuch6hFev+8=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 6
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/clearflare66.live/file2/n+k1fcAIoipq+uw1~DIyzHOX~gM90lZ5LIU50bTYu+QKaRCswO7BsKDZ0nTf0hS51MSWyA4mcrR5c1muHcUpvuIp36ojiSgIdvvHJNauIMF3drhp6UK3hE4hG2UgFc7o4xWYCJVeBPfl4sgESdxB9OoPEa+nOB1a8V64PY4EVi4=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 7
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/mistcloud98.xyz/file2/eS+1+cLK5pZJJUsQWe0R+iBWOeE1iduziI8uDcTv6Xck4eChFvUkB4Offbzo8VDbeWAmIPKF4~dClU0U~W0XQdjVTSkxvz+L4~hrrvXsPwvGzQJrF0fTAuE+5N~1tNWE1+zIVeqzTZZCljOTC31TZfIR59zGkQQJj0Lqn9q0ZQg=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 8
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="season">
-            <h2><i class="fas fa-tv"></i> Season 2</h2>
-            <div class="episodes-grid">
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/breezeflash17.pro/file2/zgsR7gk46n12+o5IIuXT5cFHBvfkcAIPtNFGzlassmAoWny3mrWmcNIQZd4+3nV5Fw1q406nLrwX30Xwa+4Wvx~4aPs2e1WjzDdOz517SaaFAwZswmxUzoAwyM6BYzKk0hpCIklK91DimTuirLi3BDp9N+9fqTw8HJFTAeSqg+U=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 1
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/mistcloud98.xyz/file2/y5ogtfYtH7HqL3aF+7bRNH~S~ZV3Zu4K1n7iDIW710umPg0+fLF0NVHQUWklteSEFZ7DfCi7ai9qrLUfYwvhvUp3596zaT7e+OMw~VNeua~3i6gpPlGRxMR7Rsv4GcZROlkw5K79cZGWcEelDaOVwiAQ5QAs3YLyJ+St886qBVQ=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 2
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/lightmist83.live/file2/EiqnarBmmPGovb+FDdX8jkuY4QYwQu4nu9EN7kHR8WjzNRRZhYzD0F~GKVzj43QKTGHy5NlGMvhG5OnTXJczxuS8ub+jla9EEBltmtfbxBsNnQ~d0il4~IUStFOYHkK3+PdFnZ~BQubXEPj6~Z7960Q3S4GUX~oTjjI3jULZEOE=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 3
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/rainwhisper40.xyz/file2/GWmBk~1j~zlAqI08ZCwNF36dUM5APuBM+TkraxxuXLtcprhsT0SQ2+5k4Hypl3~xvk+guVxJ++pjvWrqPnUlh09mXv75JKi~4QsdGGGQharNNsliA3sx+Prki6IAQqtugSZm2b4~sbwj+M86ExmgmHjQZzCFhqiL6aNUGIBh6M8=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 4
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/rainwhisper40.xyz/file2/cPcdH4GdAq6Ktn0oRrJdGqJFSe5CLabr77~ilGrUGLtx9eTeYLcJifdX18DgEISysmW9225nupZwRLhxTjDIOXjnHja~+fibFI4JaZdLsYFaWnTU7znzCAoH8oDql0QzYOoaKFNo8jkudz0xRpBbNfosskQyai+KP~pvov~Mis0=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 5
-                    </a>
-                </div>
-                <div class="episode-card">
-                    <a href="player.html?url=https://gradejumper.site/frostwave30.xyz/file2/noqb0kWAYAZ6jQ48nXXrbBQsVwm3nMpv6fe1qfkDxI1+SRl4tAvvJtaf70R0QL71lSTGdoFeaG~BEPHD9GhNdsv40zMVMVKqHTmcbJecEi7I+2rW1ZE8BXmzuYsWDHOFY+iZQbTrRek+Qfa+vd6qhJNCOG8zADQj8IjOPZR+OKU=/MTA4MA==/aW5kZXgubTN1OA==.m3u8" class="episode-link">
-                        <i class="fas fa-play"></i> Episode 6
-                    </a>
-                </div>
-            </div>
-        </div>
-
+    document.getElementById('searchBar').addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const movieDivs = document.querySelectorAll('.movie');
+      movieDivs.forEach(div => {
+        const title = div.querySelector('.movie-title').textContent.toLowerCase();
+        div.style.display = title.includes(searchTerm) ? 'block' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>
